@@ -1,0 +1,48 @@
+
+project_name: nonce-cleaner
+
+builds:
+  - main: ./pkg/main.go
+
+    binary: nonce-cleaner
+
+    flags:
+      - -v
+      - -trimpath
+
+    ldflags:
+      - -s -w
+
+    env:
+      - CGO_ENABLED=0
+
+    goos:
+      - darwin
+      - linux
+      - windows
+
+    goarch:
+      - amd64
+      - 386
+      - arm64
+      - arm
+
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: darwin
+        goarch: arm64
+      - goos: darwin
+        goarch: arm
+      - goos: windows
+        goarch: arm64
+      - goos: windows
+        goarch: arm
+
+snapshot:
+  name_template: "{{.Tag}}-snapshot"
+
+archives:
+  - name_template: "{{ tolower .ProjectName }}-{{ tolower .Os }}-{{ tolower .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+
+    format: binary
