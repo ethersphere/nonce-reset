@@ -1,4 +1,4 @@
-# nonce-cleaner
+# nonce-reset
 
 Reset the nonce counter of a bee node. 
 Only use this if there is an actual nonce mismatch and there are no pending transactions floating around in the eth network.
