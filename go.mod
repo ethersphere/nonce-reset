@@ -1,4 +1,4 @@
-module nonce-cleaner
+module nonce-reset
 
 go 1.15
 

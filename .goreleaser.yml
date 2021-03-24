@@ -1,10 +1,10 @@
 
-project_name: nonce-cleaner
+project_name: nonce-reset
 
 builds:
   - main: ./pkg/main.go
 
-    binary: nonce-cleaner
+    binary: nonce-reset
 
     flags:
       - -v
